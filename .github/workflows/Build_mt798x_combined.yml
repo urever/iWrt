@@ -15,31 +15,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - soc: "mt7981"
-            config_file: "./configs/ARM/mt798x/mt7981.config"
-            description: "AE86Wrt-MT7981"
-            type: "standard"
-
           - soc: "mt7986"
             config_file: "./configs/ARM/mt798x/mt7986.config"
             description: "AE86Wrt-MT7986"
             type: "standard"
-          
-          - model: "mt3000"
-            soc_prefix: "mt7981"
-            config_file: "./configs/ARM/mt798x/mt3000.config"
-            output_file: "immortalwrt-mediatek-mt7981-glinet_gl-mt3000-squashfs-sysupgrade.tar"
-            output_suffix: "tar"
-            description: "AE86Wrt-GL-MT3000"
-            type: "gl"
-
-          - model: "mt6000"
-            soc_prefix: "mt7986"
-            config_file: "./configs/ARM/mt798x/mt6000.config"
-            output_file: "immortalwrt-mediatek-mt7986-glinet_gl-mt6000-squashfs-sysupgrade.bin"
-            output_suffix: "bin"
-            description: "AE86Wrt-GL-MT6000"
-            type: "gl"
     steps:
       - name: Clone Repository
         uses: actions/checkout@main
@@ -116,54 +95,6 @@ jobs:
               {
                 "name": "Redmi-AX6000",
                 "output_file": "immortalwrt-mediatek-mt7986-xiaomi_redmi-router-ax6000-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "JDCloud-AX6000",
-                "output_file": "immortalwrt-mediatek-mt7986-jdcloud_re-cp-03-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "Netcore-N60",
-                "output_file": "immortalwrt-mediatek-mt7986-netcore_n60-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "360-T7",
-                "output_file": "immortalwrt-mediatek-mt7981-mt7981-360-t7-108M-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "KOMI-A31",
-                "output_file": "immortalwrt-mediatek-mt7981-konka_komi-a31-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "Xiaomi-AX3000T-MTK",
-                "output_file": "immortalwrt-mediatek-mt7981-xiaomi_mi-router-ax3000t-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "Xiaomi-AX3000T-MTK_an8855",
-                "output_file": "immortalwrt-mediatek-mt7981-xiaomi_mi-router-ax3000t-an8855-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "Cetron-CT3003",
-                "output_file": "immortalwrt-mediatek-mt7981-cetron_ct3003-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "CMCC-RAX3000M",
-                "output_file": "immortalwrt-mediatek-mt7981-cmcc_rax3000m-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "Nokia-AX3000",
-                "output_file": "immortalwrt-mediatek-mt7981-nokia_ea0326gmp-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "H3C-NX30Pro",
-                "output_file": "immortalwrt-mediatek-mt7981-h3c_nx30pro-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "JCG-Q30Pro",
-                "output_file": "immortalwrt-mediatek-mt7981-jcg_q30-squashfs-sysupgrade.bin"
-              },
-              {
-                "name": "Xiaomi-WR30U",
-                "output_file": "immortalwrt-mediatek-mt7981-xiaomi_mi-router-wr30u-112m-squashfs-sysupgrade.bin"
               }
             ]'
             echo "$models_json" | jq -c '.[]' | while read -r model; do
